@@ -55,10 +55,10 @@ git branch -D #强制删除
 
 ## 提交新修改的东西：
 ```bash
-git add new_file  #添加新文件到git
-git add ./*       #这样也是可以的
+git add new_file                              #添加新文件到git
+git add ./*                                   #这样也是可以的
 git commit -am "说明文字，简短，字数有限"
-git push
+git push [origin 本地分支名:远端新分支名]     #第一次提交，需要设置origin
 ```
 
 ## 从仓库中移除文件或目录
