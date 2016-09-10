@@ -59,3 +59,20 @@ git add new_file  #添加新文件到git
 git add ./*       #这样也是可以的
 git commit -am "说明文字，简短，字数有限"
 ```
+
+## 从仓库中移除文件或目录
+```bash
+git rm -r ./.idea/* --cached    # 建议：加上cached不会删除文件，只是从repos中移除
+git rm ./.gradle                # -r 是递归移除，用于目录
+#删除完，然后再提交一遍
+```
+
+## 查看提交日志
+```bash
+git log
+```
+
+## 回退以前某个提交
+```
+git reset hash   #从git log中可以查看到commit的hash
+```
