@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2016-09-18 23:21:04
+Date: 2016-09-19 22:54:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -145,7 +145,7 @@ CREATE TABLE `learn_record` (
   `date` datetime NOT NULL COMMENT '创建时间',
   `catalog_id` int(11) NOT NULL COMMENT '章节ID',
   `user_id` int(11) NOT NULL COMMENT '用户ID',
-  `progress` varchar(255) NOT NULL DEFAULT '0.0' COMMENT '观看进度，比如：10%，记录为0.1',
+  `progress` double NOT NULL DEFAULT '0' COMMENT '观看进度，比如：10%，记录为0.1',
   `last_date` datetime NOT NULL COMMENT '最后一次观看的时间',
   `last_position` int(11) NOT NULL DEFAULT '0' COMMENT '最后一次，观看视频的位置',
   PRIMARY KEY (`id`)
