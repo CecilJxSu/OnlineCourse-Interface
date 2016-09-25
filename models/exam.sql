@@ -29,10 +29,12 @@ PRIMARY KEY (`id`)
 
 CREATE TABLE `course` (
 `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+`status` varchar(6) CHARACTER SET utf8 NOT NULL COMMENT '发布状态，public；草稿保存状态，draft；删除，delete',
 `date` datetime NOT NULL COMMENT '创建日期',
 `name` varchar(50) CHARACTER SET utf8 NULL COMMENT '课程名',
 `introduction` varchar(255) CHARACTER SET utf8 NULL DEFAULT NULL COMMENT '课程介绍',
 `user_id` int NOT NULL COMMENT '作者ID',
+`department` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '系别：计算机系、外语系...',
 `watch_count` int NULL DEFAULT 0 COMMENT '每次观看+1',
 `like_count` int NULL DEFAULT 0 COMMENT '每次点赞+2',
 `comment_count` int NULL DEFAULT 0 COMMENT '每次评论+3',
@@ -47,6 +49,7 @@ CREATE TABLE `comment` (
 `target_id` int NOT NULL,
 `user_id` int NOT NULL COMMENT '用户ID',
 `content` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '评论内容',
+`picture_urls` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '图片，最多9张',
 `like_count` int NULL DEFAULT 0 COMMENT '每次点赞+1',
 `reply_count` int NULL DEFAULT 0 COMMENT '每次回复+2',
 PRIMARY KEY (`id`) 
@@ -110,7 +113,6 @@ PRIMARY KEY (`id`)
 CREATE TABLE `reply` (
 `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
 `date` datetime NOT NULL COMMENT '创建时间',
-`type` varchar(10) CHARACTER SET utf8 NOT NULL COMMENT '课程评论回复：course；话题评论回复：chat',
 `comment_id` int NOT NULL COMMENT '回复对应评论的评论ID',
 `to_user_id` int NULL COMMENT '回复对应评论的作者ID',
 `user_id` int NOT NULL COMMENT '回复创建的用户ID',
@@ -125,7 +127,7 @@ CREATE TABLE `message` (
 `type` varchar(10) CHARACTER SET utf8 NOT NULL COMMENT '消息类型。课程：course；话题：chat；评论：comment；系统：system；用户：user',
 `to_user_id` int NOT NULL COMMENT '接收者ID',
 `from_user_id` int NULL COMMENT '发送方ID，如果是系统产生，可以为空',
-`action_type` varchar(10) CHARACTER SET utf8 NULL COMMENT '消息产生的动作。点赞：like；收藏：favorite；关注：following；回复：reply',
+`action_type` varchar(10) CHARACTER SET utf8 NULL COMMENT '消息产生的动作。点赞：like；收藏：favorite；关注：following；回复：reply；评论：comment',
 `position_id` int NULL COMMENT '消息产生的对象ID，比如课程ID，话题ID',
 `content` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '消息内容',
 PRIMARY KEY (`id`) 
@@ -138,7 +140,6 @@ CREATE TABLE `catalog` (
 `index` int NOT NULL COMMENT '章节号',
 `name` varchar(50) CHARACTER SET utf8 NULL COMMENT '章节名称',
 `introduction` varchar(255) CHARACTER SET utf8 NULL COMMENT '章节简介',
-`key_point` varchar(255) CHARACTER SET utf8 NULL COMMENT '重点、难点',
 `url` varchar(255) CHARACTER SET utf8 NULL COMMENT '章节视频源',
 `duration` int NULL COMMENT '视频时间长度，毫秒',
 `previewImage` varchar(255) CHARACTER SET utf8 NULL COMMENT '预览图',
@@ -148,7 +149,8 @@ PRIMARY KEY (`id`)
 CREATE TABLE `document` (
 `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
 `date` datetime NOT NULL COMMENT '创建日期',
-`catalog_id` int NOT NULL COMMENT '章节ID',
+`target_type` varchar CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '课程：course；章节：catalog',
+`target_id` int NOT NULL COMMENT '章节ID或课程ID',
 `url` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '文件url',
 `type` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT '文件类型',
 `size` int NOT NULL COMMENT '文件大小，单位（B）',
@@ -191,9 +193,6 @@ CREATE TABLE `example` (
 PRIMARY KEY (`id`) 
 );
 
-CREATE TABLE `answer_sheet` (
-);
-
 
 ALTER TABLE `comment` ADD CONSTRAINT `fk_comment_like_1` FOREIGN KEY (`id`) REFERENCES `like` (`target_id`);
 ALTER TABLE `reply` ADD CONSTRAINT `fk_reply_comment_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`);
@@ -204,7 +203,7 @@ ALTER TABLE `chat` ADD CONSTRAINT `fk_chat_favorite_1` FOREIGN KEY (`id`) REFERE
 ALTER TABLE `chat` ADD CONSTRAINT `fk_chat_like_1` FOREIGN KEY (`id`) REFERENCES `like` (`target_id`);
 ALTER TABLE `chat` ADD CONSTRAINT `fk_chat_comment_1` FOREIGN KEY (`id`) REFERENCES `comment` (`target_id`);
 ALTER TABLE `course` ADD CONSTRAINT `fk_course_catalog_1` FOREIGN KEY (`id`) REFERENCES `catalog` (`course_id`);
-ALTER TABLE `catalog` ADD CONSTRAINT `fk_catalog_document_1` FOREIGN KEY (`id`) REFERENCES `document` (`catalog_id`);
+ALTER TABLE `catalog` ADD CONSTRAINT `fk_catalog_document_1` FOREIGN KEY (`id`) REFERENCES `document` (`target_id`);
 ALTER TABLE `course` ADD CONSTRAINT `fk_course_watch_1` FOREIGN KEY (`id`) REFERENCES `watch` (`target_id`);
 ALTER TABLE `chat` ADD CONSTRAINT `fk_chat_watch_1` FOREIGN KEY (`id`) REFERENCES `watch` (`target_id`);
 ALTER TABLE `document` ADD CONSTRAINT `fk_document_watch_1` FOREIGN KEY (`id`) REFERENCES `watch` (`target_id`);
@@ -214,4 +213,5 @@ ALTER TABLE `user` ADD CONSTRAINT `fk_user_profile_1` FOREIGN KEY (`id`) REFEREN
 ALTER TABLE `catalog` ADD CONSTRAINT `fk_catalog_question_1` FOREIGN KEY (`id`) REFERENCES `question` (`catalog_id`);
 ALTER TABLE `question` ADD CONSTRAINT `fk_question_answer_1` FOREIGN KEY (`id`) REFERENCES `answer` (`question_id`);
 ALTER TABLE `user` ADD CONSTRAINT `fk_user_message_1` FOREIGN KEY (`id`) REFERENCES `message` (`to_user_id`);
+ALTER TABLE `course` ADD CONSTRAINT `fk_course_document_1` FOREIGN KEY (`id`) REFERENCES `document` (`target_id`);
 
