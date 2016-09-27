@@ -74,7 +74,7 @@ CREATE TABLE `question` (
 `date` datetime NOT NULL,
 `catalog_id` int NOT NULL COMMENT '章节ID',
 `index` int NOT NULL COMMENT '题号',
-`type` varchar(10) CHARACTER SET utf8 NOT NULL COMMENT '试题类型；判断题：1；单选：2；多选：3',
+`type` tinyint(10) UNSIGNED NOT NULL COMMENT '试题类型；判断题：1；单选：2；多选：3',
 `question` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '题目',
 `answer` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '答案，多个答案用英文逗号分开',
 `item` text CHARACTER SET utf8 NULL COMMENT 'JSON.toStringify(){答案Json形式存储 }',
