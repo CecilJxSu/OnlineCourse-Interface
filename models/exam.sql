@@ -8,7 +8,7 @@ CREATE TABLE `user` (
 `username` varchar(24) CHARACTER SET utf8 NOT NULL COMMENT '登录用户名',
 `password` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '密码',
 PRIMARY KEY (`id`) ,
-UNIQUE INDEX `Index_username` (`username`)
+UNIQUE INDEX `Index_username` (`username` ASC)
 );
 
 CREATE TABLE `profile` (
@@ -149,7 +149,7 @@ PRIMARY KEY (`id`)
 CREATE TABLE `document` (
 `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
 `date` datetime NOT NULL COMMENT '创建日期',
-`target_type` varchar CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '课程：course；章节：catalog',
+`target_type` varchar(0) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '课程：course；章节：catalog',
 `target_id` int NOT NULL COMMENT '章节ID或课程ID',
 `url` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '文件url',
 `type` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT '文件类型',
@@ -180,9 +180,9 @@ PRIMARY KEY (`id`)
 CREATE TABLE `answer` (
 `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
 `date` datetime NOT NULL COMMENT '答题时间',
-`question_id` int NOT NULL COMMENT '问题ID',
+`catalog_id` int NOT NULL COMMENT '问题ID',
 `user_id` int NOT NULL COMMENT '用户ID',
-`answer` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT 'JSON.toStringify()后的结果，答题数据，每题数组：结构 { index: 1, answer: A,B }',
+`answer` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT 'JSON.toStringify()后的结果，整个小节的答题数据，结构 { index: 1, answer: A,B }',
 `total` float NULL DEFAULT 0 COMMENT '总分',
 PRIMARY KEY (`id`) 
 );
@@ -211,7 +211,7 @@ ALTER TABLE `catalog` ADD CONSTRAINT `fk_catalog_learn_record_1` FOREIGN KEY (`i
 ALTER TABLE `user` ADD CONSTRAINT `fk_user_following_1` FOREIGN KEY (`id`) REFERENCES `following` (`user_id`);
 ALTER TABLE `user` ADD CONSTRAINT `fk_user_profile_1` FOREIGN KEY (`id`) REFERENCES `profile` (`user_id`);
 ALTER TABLE `catalog` ADD CONSTRAINT `fk_catalog_question_1` FOREIGN KEY (`id`) REFERENCES `question` (`catalog_id`);
-ALTER TABLE `question` ADD CONSTRAINT `fk_question_answer_1` FOREIGN KEY (`id`) REFERENCES `answer` (`question_id`);
 ALTER TABLE `user` ADD CONSTRAINT `fk_user_message_1` FOREIGN KEY (`id`) REFERENCES `message` (`to_user_id`);
 ALTER TABLE `course` ADD CONSTRAINT `fk_course_document_1` FOREIGN KEY (`id`) REFERENCES `document` (`target_id`);
+ALTER TABLE `catalog` ADD CONSTRAINT `fk_catalog_answer_1` FOREIGN KEY (`id`) REFERENCES `answer` (`catalog_id`);
 
