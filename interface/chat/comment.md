@@ -1,4 +1,4 @@
-# /chat/{chatId}/comment
+# /chat/{chatId}/comments
 话题的评论相关接口
 
 ## GET
@@ -65,6 +65,7 @@
 404：话题的评论列表为空
 
 
+# /chat/{chatId}/comment
 ## POST
 评论话题
 

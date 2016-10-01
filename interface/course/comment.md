@@ -1,4 +1,4 @@
-# /course/{courseId}/comment
+# /course/{courseId}/comments
 课程的评论相关接口
 
 ## GET
@@ -65,6 +65,7 @@
 404：课程的评论列表为空
 
 
+# /course/{courseId}/comment
 ## POST
 评论课程
 ### 参数说明
