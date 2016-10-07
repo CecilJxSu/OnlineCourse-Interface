@@ -1,7 +1,7 @@
 # /user/messages
 用户的消息列表接口
 ## GET
-获取多条记录
+获取用户的消息
 
 ### 参数说明
 * [ start = 0 ]
@@ -19,7 +19,6 @@
     messages: Message[] - [{
         id: number - 1;
         date: Date - new Date();
-        isRead: boolean - false;
         type: string - "course" | "chat" | "comment" | "system" | "user";
         
         toUser: User - {
@@ -66,7 +65,6 @@
 {
     id: number - 1;
     date: Date - new Date();
-    isRead: boolean - false;
     type: string - "course" | "chat" | "comment" | "system" | "user";
     
     toUser: User - {
@@ -120,5 +118,4 @@
 #### 错误处理
 * 400：参数错误
 * 401：未登录
-* 403：不是自己的通知
 * 404：没有该消息
