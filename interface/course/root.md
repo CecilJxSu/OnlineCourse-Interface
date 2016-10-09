@@ -154,31 +154,9 @@
 #### 上传数据
 ```
 {
-    status: string - "public" | "draft";
     name: string - "Java 教程";
     introduction: string - "课程简介";
     department: string - "计算机系";
-    
-    documents: Document[] - [{
-        url: string - "http://url.com";
-        type: string - "pdf" | "doc" | "ppt" | "xls" | "mp4";
-        size: number - 13456;
-    }];
-    
-    catalogs: Catalog[] - [{
-        index: number - 1;
-        name: string - "第一个小程序：Hello World";
-        introduction: string - "本章节主要介绍Java的语法";
-        url： string - "http://url.com/video";
-        duration: number - 342424;
-        previewImage: string - "http://url.com/image";
-        
-        documents: Document[] - [{
-            url: string - "http://url.com";
-            type: string - "pdf" | "doc" | "ppt" | "xls" | "mp4";
-            size: number - 13456;
-        }];
-    }];
 }
 ```
 
@@ -191,7 +169,7 @@
 
 #### 补充说明
 1. 老师登录权限
-2. status分别为发布，保存。点击保存，则是创建草稿，并未发布到前端
+2. 创建的课程是草稿draft，未正式发布
 
 #### 错误处理
 * 400：参数错误
