@@ -7,7 +7,7 @@
 ### 参数说明
 * [ start = 0 ]
 * [ count = 10 ]
-* [ sort = date | hot ]
+* [ sort = date | rank ]
 
 #### 上传数据
 无
@@ -62,7 +62,8 @@
 2. 检查是否点赞过
 
 #### 错误处理
-404：课程的评论列表为空
+* 400：参数错误
+* 404：课程的评论列表为空
 
 
 # /course/{courseId}/comment
@@ -74,7 +75,7 @@
 ```
 {
     content: string - "Hello";
-    pictureUrls: string[] - ["http://url.com/image"];
+    pictureUrls?: string[] - ["http://url.com/image"];
 }
 ```
 
@@ -116,9 +117,10 @@
 ```
 
 #### 补充说明
-需要登录
+* 需要登录
+* 评论回复+1
 
 #### 错误处理
 * 400：上传数据有问题；
 * 401：用户未登录；
-* 404：课程或评论不存在。
+* 404：课程或评论或toUser用户不存在。
