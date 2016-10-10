@@ -8,101 +8,34 @@
 
 #### 上传数据
 无
-
 #### 返回数据
 ```
 {
     total: number - 10;
-    users: User[] - [{
+    learnRecords: LearnRecords[] - [{
         id: number - 1;
-        name: string - "cecil";
-        iconUrl: string - "http://url.com";
+        date: Date - new Date();
+        catalog: Catalog - {
+            id: number - 1;
+            name: "Java教程";
+        };
+        user: User - {
+            id: number - 1;
+            name: string - "cecil";
+            iconUrl: string - "http://url.com";
+        };
+        progress: number - 10.9;
+        lastDate: Date - new Date();
+        lastPosition: number - 1;
     }];
 }
 ```
-
 #### 补充说明
-需要登录
+1. 需要登录
+2. 获取别人的学习记录，需要老师登录，而且获取的，是自己的课程下的观看记录
 
 #### 错误处理
+* 400：参数错误
 * 401：未登录
-* 404：没有关注用户
-
-
-# /user/follower
-用户的粉丝
-
-## GET
-获取自己的粉丝
-
-### 参数说明
-* [ start = 0 ]
-* [ count = 10 ]
-
-#### 上传数据
-无
-
-#### 返回数据
-```
-{
-    total: number - 10;
-    users: User[] - [{
-        id: number - 1;
-        name: string - "cecil";
-        iconUrl: string - "http://url.com";
-    }];
-}
-```
-
-#### 补充说明
-需要登录
-
-#### 错误处理
-* 401：未登录
-* 404：没有粉丝
-
-
-# /user/{id}/following
-用户关注接口
-
-## POST
-关注该用户
-
-### 参数说明
-无
-
-#### 上传数据
-无
-
-#### 返回数据
-```
-{}
-```
-
-#### 补充说明
-需要登录
-
-#### 错误处理
-* 401：未登录
-* 404：用户不存在
-
-## DELETE
-取消关注
-
-### 参数说明
-无
-
-#### 上传数据
-无
-
-#### 返回数据
-```
-{}
-```
-
-#### 补充说明
-需要登录
-
-#### 错误处理
-* 401：未登录
-* 404：用户不存在
+* 403：不能获取别人的学习记录，只有老师才可以
+* 404：没有学习记录
