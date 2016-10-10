@@ -1,5 +1,5 @@
-# /course/{courseId}/document
-指定课程下的文档
+# /catalog/{catalogId}/document
+指定章节下的文档
 ## POST
 创建文档
 ### 参数说明
@@ -25,11 +25,11 @@
 * 400：参数错误
 * 401：未登录
 * 403：不是当前作者的
-* 404：没有该课程
+* 404：没有该章节或课程
 
 
-# /course/{courseId}/documents
-课程下的文档列表
+# /catalog/{catalogId}/documents
+章节下的文档列表
 ## GET
 获取文档列表
 ### 参数说明
