@@ -26,7 +26,7 @@
         };
         progress: number - 10.9;
         lastDate: Date - new Date();
-        lastPosition: number - 1;
+        lastPosition: number - 1123;
     }];
 }
 ```

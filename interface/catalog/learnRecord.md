@@ -21,11 +21,13 @@
     };
     progress: number - 9.8;
     lastDate: Date - new Date();
-    lastPosition: number - 1;
+    lastPosition: number - 1123;
 }
 ```
 #### 补充说明
-需要登录
+1. 需要登录
+2. lastPosition最后观看位置
+
 #### 错误处理
 * 401：未登录
 * 404：章节不存在
@@ -39,7 +41,7 @@
 ```
 {
     progress: number - 10.9;
-    lastPosition: number - 1;
+    lastPosition: number - 1123;
 }
 ```
 #### 返回数据
@@ -47,8 +49,8 @@
 {}
 ```
 #### 补充说明
-* 需要登录
-* lastPosition是章节的index
+1. 需要登录
+2. lastPosition最后观看位置
 
 #### 错误处理
 * 401：未登录
