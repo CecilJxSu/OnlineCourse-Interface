@@ -36,9 +36,12 @@
 1. 可以不用登录
 2. 检查是否点赞过和收藏过
 3. 检查是否浏览过，如果没有浏览过，添加watchCount + 1
+4. likeCount/2，commentCount/3，favoriteCount/4
 
 #### 错误处理
-404：话题不存在
+* 400：参数错误
+* 401：未登录
+* 404：话题为空
 
 
 ## DELETE
@@ -53,7 +56,7 @@
 ```
 
 #### 补充说明
-无
+需要登录
 
 #### 错误处理
 * 401：未登录；
@@ -73,7 +76,7 @@
 {
     title: string - "话题标题";
     content: string - "话题内容";
-    pictureUrls: string[] - ["http://url.com/image"];
+    pictureUrls?: string[] - ["http://url.com/image"];
 }
 ```
 
@@ -91,6 +94,7 @@
 #### 错误处理
 * 400：参数错误
 * 401：未登录
+* 500：创建失败
 
 
 # /chats
@@ -100,7 +104,7 @@
 ### 参数说明
 * [ start = 0 ]
 * [ count = 10 ]
-* [ sort = date | hot ]
+* [ sort = date | rank ]
 
 #### 上传数据
 无
@@ -142,4 +146,5 @@ Chat: {
 3. 返回的图片，可以是缩略图
 
 #### 错误处理
-404：话题列表为空
+* 400：参数错误
+* 404：话题列表为空
