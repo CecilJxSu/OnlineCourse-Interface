@@ -62,19 +62,23 @@
 
 # /user/{userId}
 ## DELETE
-永久封号
+封号以及永久封号
 ### 参数说明
 无
 #### 上传数据
 无
 #### 返回数据
 ```
-{}
+{
+    infinity: boolean - true;
+    lockEndDate?: number - 14700012323; //毫秒数
+}
 ```
 
 #### 补充说明
 1. 需要管理员账号登录；
 2. uid是被封的账号；
+3. 如果infinity=true，则不用上传lockEndDate，永久封号；如果infinity=false，则lockEndDate=解封的时刻
 
 #### 错误处理
 * 400：参数有问题；
