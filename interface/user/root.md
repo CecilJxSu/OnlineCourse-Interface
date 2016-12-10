@@ -10,7 +10,6 @@
 {
     username: string - "cecil";
     password: string - "12345dff";
-    email: string - "123456@qq.com";
 }
 ```
 
