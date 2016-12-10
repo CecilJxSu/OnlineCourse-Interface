@@ -10,6 +10,7 @@
 {
     username: string - "cecil";
     password: string - "12345dff";
+    userStatus: string - "student" | "teacher" | "admin";
 }
 ```
 
