@@ -21,7 +21,7 @@ Question: {
     
     answer?: string[] - ["A"];
     
-    item: any - { A: "2", B: "3", C: "5", D: "6" };
+    item: Map<String,String> - { A: "2", B: "3", C: "5", D: "6" };
     explains: string - "1 + 1 = 2";
     url?: string - "http://url.com";
     score: number - 2;
@@ -66,7 +66,7 @@ Question: {
     
     answer?: string[] - ["A"];
     
-    item: any - { A: "2", B: "3", C: "5", D: "6" };
+    item: Map<String,String> - { A: "2", B: "3", C: "5", D: "6" };
     explains: string - "1 + 1 = 2";
     url?: string - "http://url.com";
     score: number - 2;
@@ -133,7 +133,7 @@ Question: {
     
     answer?: string[] - ["A"];
     
-    item: any - { A: "2", B: "3", C: "5", D: "6" };
+    item: Map<String,String> - { A: "2", B: "3", C: "5", D: "6" };
     explains: string - "1 + 1 = 2";
     url?: string - "http://url.com";
     score: number - 2;
