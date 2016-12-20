@@ -14,7 +14,7 @@
     date: Date - new Date();
     courseId: number - 1;
     index: number - 1;
-    parent_id: number - 0;
+    parentId: number - 0;
     name: string - "Java 入门";
     introduction: string - "Java 入门";
     url?: string - "http://url.com/video";
