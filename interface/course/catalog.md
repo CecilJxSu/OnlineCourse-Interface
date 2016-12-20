@@ -7,6 +7,7 @@
 #### 上传数据
 ```
 {
+    parent_id: number - 0
     index: number - 1;
     name: string - "第一个小程序：Hello World";
     introduction: string - "本章节主要介绍Java的语法";
@@ -24,13 +25,14 @@
 #### 补充说明
 1. 老师登录
 2. 如果上传url，则duration和previewImage也要上传
+3. parent_id 大于 0，属于节；如果不大于零或者其它值，则为章
 
 #### 错误处理
 * 400：参数错误
 * 401：未登录
 * 403：不是当前课程作者登录
 * 404：课程不存在
-* 409：index存在，不能重复
+* 409：index和parent_id存在，不能重复
 
 
 # /course/{courseId}/catalogs
@@ -48,6 +50,7 @@ Catalog[] - [{
     date: Date - new Date();
     courseId: number - 1
     index: number - 1;
+    parent_id: number - 0;
     name: string - "第一个小程序：Hello World";
     introduction: string - "本章节主要介绍Java的语法";
     url?： string - "http://url.com/video";
