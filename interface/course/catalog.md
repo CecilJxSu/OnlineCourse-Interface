@@ -50,7 +50,7 @@ Catalog[] - [{
     date: Date - new Date();
     courseId: number - 1
     index: number - 1;
-    parent_id: number - 0;
+    parentId: number - 0;
     name: string - "第一个小程序：Hello World";
     introduction: string - "本章节主要介绍Java的语法";
     url?： string - "http://url.com/video";
