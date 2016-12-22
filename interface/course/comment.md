@@ -53,6 +53,7 @@
         }];
         
         isLike: boolean - false;
+        isReply: boolean - true;
     }];
 }
 ```
