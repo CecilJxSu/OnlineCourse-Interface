@@ -42,7 +42,8 @@ git checkout -b feature-8.7-Preview
 
 ## 修改分支名称
 ```bash
-git branch -m 旧分支名 新分支名
+git branch -m 旧分支名 新分支名     #需要切换到其它分支
+git branch -m 新分支名             #在原分支修改名称，不需要切换分支
 ```
 
 
