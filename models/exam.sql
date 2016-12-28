@@ -122,6 +122,8 @@ CREATE TABLE `chat` (
 
 `content` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '话题内容',
 
+`html` text CHARACTER SET utf8 NOT NULL COMMENT 'html格式的话题内容',
+
 `user_id` int NOT NULL COMMENT '用户ID',
 
 `picture_urls` varchar(255) CHARACTER SET utf8 NULL COMMENT '图片，最多9张',

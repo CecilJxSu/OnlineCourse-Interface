@@ -13,6 +13,7 @@
     date: Date - new Date();
     title: string - "话题标题";
     content: string - "话题内容";
+    html: string - "<p>话题内容</p>";
     
     author: User - {
         id: number - 123;
@@ -76,6 +77,7 @@
 {
     title: string - "话题标题";
     content: string - "话题内容";
+    html: string - "<p>话题内容</p>";
     pictureUrls?: string[] - ["http://url.com/image"];
 }
 ```
@@ -121,6 +123,7 @@ Chat: {
     date: Date - new Date();
     title: string - "话题标题";
     content: string - "话题内容";
+    html: string - "<p>话题内容</p>";
     
     author: User - {
         id: number - 123;
