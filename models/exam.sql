@@ -126,7 +126,7 @@ CREATE TABLE `chat` (
 
 `user_id` int NOT NULL COMMENT '用户ID',
 
-`picture_urls` varchar(255) CHARACTER SET utf8 NULL COMMENT '图片，最多9张',
+`picture_urls` varchar(350) CHARACTER SET utf8 NULL COMMENT '图片，最多9张',
 
 `watch_count` int NULL DEFAULT 0 COMMENT '每次查看+1',
 
@@ -298,7 +298,7 @@ CREATE TABLE `document` (
 
 `url` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '文件url',
 
-`type` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT '文件类型',
+`type` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '文件类型',
 
 `size` int NOT NULL COMMENT '文件大小，单位（B）',
 
