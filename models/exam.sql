@@ -150,7 +150,7 @@ CREATE TABLE `question` (
 
 `catalog_id` int NOT NULL COMMENT '章节ID',
 
-`questions` text CHARACTER SET utf8 NOT NULL COMMENT '题目',
+`questions` text CHARACTER SET utf8 NOT NULL COMMENT '题目，结构参考接口文档 question设计.md',
 
 `total` float NOT NULL COMMENT '题目总分',
 
@@ -360,7 +360,7 @@ CREATE TABLE `answer` (
 
 `user_id` int NOT NULL COMMENT '用户ID',
 
-`answer` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT 'JSON.toStringify()后的结果，答题数据，每题数组：结构 { index: 1, answer: A,B }',
+`answer` text CHARACTER SET utf8 NOT NULL COMMENT 'JSON.toStringify()后的结果，答题数据，每题数组：结构参考接口文档 answer设计.md',
 
 `total` float NULL DEFAULT 0 COMMENT '总分',
 
