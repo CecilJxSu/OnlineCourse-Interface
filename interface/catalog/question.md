@@ -13,20 +13,8 @@
     questions: Question[];
 }
 ```
-```
-Question: {
-    index: number - 1;
-    type: string - "单选题" | "多选题" | "判断题";
-    question: string - "1 + 1 = ?";
-    
-    answer?: string[] - ["A"];
-    
-    item: Map<String,String> - { A: "2", B: "3", C: "5", D: "6" };
-    explains: string - "1 + 1 = 2";
-    url?: string - "http://url.com";
-    score: number - 2;
-}
-```
+[参考Question设计] (https://github.com/CecilJxSu/OnlineCourse-Interface/blob/master/models/question%E8%AE%BE%E8%AE%A1.md)
+
 #### 返回数据
 ```
 {
@@ -35,7 +23,7 @@ Question: {
 ```
 #### 补充说明
 1. 需要登录，课程所有者才能创建
-2. question会以JSON.stringify的方式储存，所以后期可以修改结构
+2. question会以JSON.stringify的方式储存
 3. 可以根据不同的type来设计不同的题型结构
 4. total总分
 
@@ -58,27 +46,15 @@ Question: {
     questions: Question[];
 }
 ```
-```
-Question: {
-    index: number - 1;
-    type: string - "单选题" | "多选题" | "判断题";
-    question: string - "1 + 1 = ?";
-    
-    answer?: string[] - ["A"];
-    
-    item: Map<String,String> - { A: "2", B: "3", C: "5", D: "6" };
-    explains: string - "1 + 1 = 2";
-    url?: string - "http://url.com";
-    score: number - 2;
-}
-```
+[参考Question设计] (https://github.com/CecilJxSu/OnlineCourse-Interface/blob/master/models/question%E8%AE%BE%E8%AE%A1.md)
+
 #### 返回数据
 ```
 {}
 ```
 #### 补充说明
 1. 需要登录，课程所有者才能更新
-2. question会以JSON.stringify的方式储存，所以后期可以修改结构
+2. question会以JSON.stringify的方式储存
 3. 可以根据不同的type来设计不同的题型结构
 4. total总分
 
@@ -125,23 +101,11 @@ Question: {
     total: number - 100;
 }
 ```
-```
-Question: {
-    index: number - 1;
-    type: string - "单选题" | "多选题" | "判断题";
-    question: string - "1 + 1 = ?";
-    
-    answer?: string[] - ["A"];
-    
-    item: Map<String,String> - { A: "2", B: "3", C: "5", D: "6" };
-    explains: string - "1 + 1 = 2";
-    url?: string - "http://url.com";
-    score: number - 2;
-}
-```
+[参考Question设计] (https://github.com/CecilJxSu/OnlineCourse-Interface/blob/master/models/question%E8%AE%BE%E8%AE%A1.md)
+
 #### 补充说明
 1. 需要登录
-2. question会以JSON.stringify的方式储存，所以后期可以修改结构
+2. question会以JSON.stringify的方式储存
 3. 可以根据不同的type来设计不同的题型结构
 4. total总分
 
