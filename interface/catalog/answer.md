@@ -18,10 +18,12 @@
         name: string - "cecil";
         iconUrl: string - "http://url.com";
     };
-    answer: { [index:number]: string[]; } - { 1: ["A"], 2: ["B"], 3: ["A","B"] };
+    answer: Answer[];
     total: number - 98.5;
 }
 ```
+[参考Answer设计] (https://github.com/CecilJxSu/OnlineCourse-Interface/blob/master/models/answer%E8%AE%BE%E8%AE%A1.md)
+
 #### 补充说明
 1. 需要登录
 2. total: 总分
@@ -39,10 +41,11 @@
 ```
 {
     questionId: number - 1;
-    answer: { [index:number]: string[]; } - { 1: ["A"], 2: ["B"], 3: ["A","B"] };
+    answer: Answer[];
     total: number - 98.5;
 }
 ```
+[参考Answer设计] (https://github.com/CecilJxSu/OnlineCourse-Interface/blob/master/models/answer%E8%AE%BE%E8%AE%A1.md)
 
 #### 返回数据
 ```
