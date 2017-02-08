@@ -20,7 +20,11 @@
         content: string - "话题内容";
         html: string - "<p>话题内容</p>";
         
-        userId: number - 1;
+        author: User - {
+            id: number - 123;
+            name: string - "苏金兴";
+            iconUrl: string - "http://url.com";
+        };
         
         pictureUrls: string[] - ["http://url.com"];
         
